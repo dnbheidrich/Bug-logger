@@ -2,11 +2,11 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const Bug = new Schema({
-  closed: Boolean,
-  description: String,
-  title: String,
-  reportedBy: String, //The provided name for who reported the bug
-  closedDate: Date
+  closed: { type:  Boolean, required: true },
+  description:  { type: String, required: true },
+  title: { type: String, required: true },
+  reportedBy:  { type: String, required: true },
+  closedDate:  { type: Date, required: true }
 }, { timestamps: true, toJSON: { virtuals: true } })
 
 

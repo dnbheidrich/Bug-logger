@@ -1,12 +1,15 @@
 import mongoose from "mongoose";
 import Value from "../models/Value";
-import Bug from "../models/Bug"
+import Note from "../models/Note"
 
-const _repository = mongoose.model("Bug", Bug);
+const _repository = mongoose.model("Note", Note);
 
-class BugsService {
+class NotesService {
   async getAll() {
     return await _repository.find({});
+  }
+  async findNotesByBugId(id) {
+    return await _repository.find({ bug: id })
   }
   async findById(id) {
     return await _repository.findById(id);
@@ -18,11 +21,11 @@ class BugsService {
     return await _repository.findByIdAndUpdate(id, update, { new: true })
 
   }
-  async updateBug(id, update) {
-    return await _repository.findByIdAndUpdate(id, update, { new: true })
+  async delete(id) {
+    return await _repository.findByIdAndDelete(id);
 
   }
 }
 
-const bugsService = new BugsService();
-export default bugsService;
+const notesService = new NotesService();
+export default notesService;
