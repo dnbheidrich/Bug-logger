@@ -1,5 +1,4 @@
 import express from "express";
-import valueService from "../services/ValueService";
 import notesService from "../services/NotesService";
 
 export default class NotesController {

@@ -13,7 +13,7 @@ export default class BugsController {
       .get("/:id/notes", this.getNotesByBugId)
       .post("", this.create)
       .put("/:id", this.edit)
-      // .delete("/:id", this.delete);
+      .delete("/:id", this.delete);
        
   }
 
@@ -49,6 +49,7 @@ export default class BugsController {
       next(error);
     }
   }
+  // req =
   async edit(req, res, next) {
     try {
       let data = await bugsService.update(req.params.id, req.body);
@@ -57,12 +58,12 @@ export default class BugsController {
       next(error);
     }
   }
-  // async delete(req, res, next) {
-  //   try {
-  //     let data = await bugsService.updateBug(req.params.id, req.body);
-  //     res.send(data);
-  //   } catch (error) {
-  //     next(error);
-  //   }
-  // }
+  async delete(req, res, next) {
+    try {
+      let data = await bugsService.updateBug(req.params.id);
+       res.send(data)
+    } catch (error) {
+      next(error);
+    }
+  }
 }

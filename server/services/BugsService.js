@@ -17,10 +17,12 @@ class BugsService {
     return await _repository.findByIdAndUpdate(id, update, { new: true })
 
   }
-  async updateBug(id, update) {
-    return await _repository.findByIdAndUpdate(id, update, { new: true })
+  async updateBug(id,) {
+    let data=await _repository.findByIdAndUpdate(id, {closed: true}, { new: true })
+    return data
 
   }
+
 }
 
 const bugsService = new BugsService();

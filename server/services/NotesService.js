@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import Value from "../models/Value";
 import Note from "../models/Note"
 
 const _repository = mongoose.model("Note", Note);
@@ -17,6 +16,7 @@ class NotesService {
   async create(body) {
     return await _repository.create(body);
   }
+  // {closed: true}
   async update(id, update) {
     return await _repository.findByIdAndUpdate(id, update, { new: true })
 
