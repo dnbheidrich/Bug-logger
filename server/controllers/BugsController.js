@@ -1,5 +1,4 @@
 import express from "express";
-import valueService from "../services/ValueService";
 import bugsService from "../services/BugsService";
 import notesService from "../services/NotesService"
 
