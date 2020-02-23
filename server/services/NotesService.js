@@ -16,7 +16,7 @@ class NotesService {
   async create(body) {
     return await _repository.create(body);
   }
-  // {closed: true}
+
   async update(id, update) {
     return await _repository.findByIdAndUpdate(id, update, { new: true })
 

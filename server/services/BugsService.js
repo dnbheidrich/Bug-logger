@@ -14,13 +14,13 @@ class BugsService {
     return await _repository.create(body);
   }
   async update(id, update) {
-    return await _repository.findByIdAndUpdate(id, update, { new: true })
+     let data = await _repository.findByIdAndUpdate(id, {closed: true}, { new: true })
+     return data
 
   }
-  async updateBug(id,) {
+  async updateBug(id) {
     let data=await _repository.findByIdAndUpdate(id, {closed: true}, { new: true })
     return data
-
   }
 
 }
